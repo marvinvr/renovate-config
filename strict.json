@@ -1,0 +1,9 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Stricter policy for high-impact repos (mmux, strudel): 14-day cooldown.",
+  "extends": ["github>marvinvr/renovate-config"],
+  "minimumReleaseAge": "14 days",
+  "vulnerabilityAlerts": {
+    "minimumReleaseAge": "14 days"
+  }
+}

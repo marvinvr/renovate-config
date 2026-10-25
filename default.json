@@ -1,0 +1,42 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Marvin's supply-chain update policy (Aegis, 2026-10-25): pinned versions + digests, 7-day cooldown on everything incl. security updates, weekly grouped non-major PR that automerges only when CI is green, majors never automerge.",
+  "extends": [
+    "config:recommended",
+    "docker:pinDigests",
+    "helpers:pinGitHubActionDigests"
+  ],
+  "timezone": "Europe/Zurich",
+  "schedule": ["* 0-6 * * 1"],
+  "dependencyDashboard": true,
+  "minimumReleaseAge": "7 days",
+  "minimumReleaseAgeBehaviour": "timestamp-required",
+  "internalChecksFilter": "strict",
+  "platformAutomerge": false,
+  "automergeType": "pr",
+  "ignoreTests": false,
+  "lockFileMaintenance": {
+    "enabled": false
+  },
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "minimumReleaseAge": "7 days",
+    "prCreation": "not-pending",
+    "labels": ["security"]
+  },
+  "osvVulnerabilityAlerts": true,
+  "packageRules": [
+    {
+      "description": "One weekly PR per repo for all non-major updates; automerge once the release is old enough and CI is green.",
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest", "pinDigest"],
+      "groupName": "weekly non-major updates",
+      "automerge": true
+    },
+    {
+      "description": "Majors never automerge: Aegis hands them to a coding agent.",
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "labels": ["major-update"]
+    }
+  ]
+}
