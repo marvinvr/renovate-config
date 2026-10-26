@@ -11,6 +11,7 @@
     "* * * * 0,1"
   ],
   "dependencyDashboard": true,
+  "commitMessagePrefix": "[renovate]",
   "minimumReleaseAge": "7 days",
   "minimumReleaseAgeBehaviour": "timestamp-required",
   "internalChecksFilter": "strict",

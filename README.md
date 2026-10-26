@@ -8,3 +8,5 @@ Shared Renovate presets for marvinvr repos. Policy owner: Aegis (security agent)
 Why: most hijacked releases (npm, Docker, Actions) are caught within days. Waiting a week before anything lands blocks most supply-chain attacks.
 
 Also set the cooldown in the package manager, so manual installs are covered too: npm `.npmrc` `min-release-age=7` (days), bun `bunfig.toml` `[install] minimumReleaseAge = 604800` (seconds), pnpm `minimumReleaseAge: 10080` (minutes).
+
+PR titles and commits start with `[renovate]` so mail notifications can be filtered by subject (iCloud rule: Subject contains "[renovate]").
